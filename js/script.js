@@ -3,15 +3,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // スクロールで表示されるボタンの制御
     const scrollToTopBtn = document.getElementById('scrollToTop');
     const fixedLineBtn = document.getElementById('fixedLineBtn');
+    const fixedLineBtnSp = document.getElementById('fixedLineBtnSp');
 
-    if (scrollToTopBtn && fixedLineBtn) {
+    if (scrollToTopBtn && fixedLineBtn && fixedLineBtnSp) {
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
                 scrollToTopBtn.classList.add('show');
                 fixedLineBtn.classList.add('show');
+                fixedLineBtnSp.classList.add('show');
             } else {
                 scrollToTopBtn.classList.remove('show');
                 fixedLineBtn.classList.remove('show');
+                fixedLineBtnSp.classList.remove('show');
             }
         });
     }
