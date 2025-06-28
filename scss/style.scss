@@ -1,4 +1,4 @@
-// ブレークポイント
+// ブレイクポイント
 $bp-lg: 900px;
 $bp-md: 768px;
 
@@ -176,6 +176,14 @@ $white-color: #fff;
   justify-content: center;
   padding: 40px 0;
   overflow: hidden;
+
+  @media (max-width: $bp-lg) {
+    padding: 20px 0;
+  }
+
+  @media (max-width: $bp-md) {
+    padding: 5px 0;
+  }
 }
 
 .hero-container {
@@ -199,7 +207,7 @@ $white-color: #fff;
   position: relative;
   z-index: 30;
   flex: 0 0 48%;
-  max-width: 600px;
+  max-width: 1200px;
   min-width: 380px;
   text-align: left;
   margin: 0;
@@ -218,6 +226,14 @@ $white-color: #fff;
   font-size: 1.2em;
   margin-bottom: 5px; /* 余白を狭く調整 */
   font-weight: bold;
+
+  @media (max-width: $bp-lg) {
+    font-size: 18px;
+  }
+
+  @media (max-width: $bp-md) {
+    font-size: 16px;
+  }
 }
 
 .hero-subtitle-underline {
@@ -228,21 +244,29 @@ $white-color: #fff;
 .hero-title {
   font-size: 2.8em;
   font-weight: bold;
-  margin-bottom: 10px; /* 余白を狭く調整 */
+  margin-bottom: 10px;
   color: #333;
-  line-height: 1.0;
+  line-height: 0.8;
   
-  span, .box-line {
-    display: block;
+  // span, .box-line {
+  //   margin-bottom: 30px;
   
-  }
+  // }
   
   @media (max-width: $bp-lg) {
     font-size: 40px;
   }
+  @media (max-width: 768px) and (min-width: 501px) {
+    font-size: 36px;
+  }
+  @media (max-width: 500px) {
+    font-size: 32px;
+  }
   
   @media (max-width: $bp-md) {
-    font-size: 32px;
+    font-size: 28px;
+    line-height: 0.7;
+    margin-bottom: 4px;
   }
 }
 
@@ -255,11 +279,40 @@ $white-color: #fff;
   @media (max-width: $bp-lg) {
     font-size: 30px;
   }
+
+  @media (max-width: $bp-md) {
+    font-size: 22px;
+  }
 }
 
 .box-line {
   display: inline-block;
-  letter-spacing: 0.2em;
+  transform: skewX(-10deg);
+  background: #fff;
+  padding: 6px 40px;
+  border: 2px solid #D42E1E;
+  font-weight: bold;
+  box-shadow: 4px 4px 0 #D42E1E;
+  color: #222;
+  line-height: 1.05;
+  margin-left: 5px;
+  margin-bottom: 30px;
+
+  span {
+    display: inline-block;
+    transform: skewX(10deg); // テキスト補正
+  }
+
+  @media (max-width: $bp-lg) {
+    margin-bottom: 20px;
+  }
+
+  @media (max-width: $bp-md) {
+    margin-bottom: 5px;
+    padding: 3px 20px;
+  }
+
+
 }
 
 .hero-badges {
@@ -284,6 +337,7 @@ $white-color: #fff;
 
 // Hero Images
 .hero-images {
+  // PC用
   &.pc-only {
     position: absolute;
     top: 0;
@@ -298,85 +352,75 @@ $white-color: #fff;
     z-index: 15;
     pointer-events: none;
     padding-left: 0;
-    
+
     @media (max-width: $bp-lg) {
       display: none !important;
     }
-    
     @media (max-width: 1200px) {
       position: static;
       width: 100%;
-      max-width: 100%;
       min-width: 0;
-      margin: 0 auto;
       gap: 8px;
       padding: 0;
-      box-sizing: border-box;
-      transform: none;
     }
-    
     @media (max-width: 900px) {
-      position: static;
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      margin: 0 auto;
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
-      padding: 0;
-      box-sizing: border-box;
-      transform: none;
+    }
+
+    // PC用画像サイズ
+    .hero-img {
+      width: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+      pointer-events: none;
+      top: -50px;
+
+      // 画像ごとの高さ
+      &:nth-child(1) { height: 280px; }
+      &:nth-child(2) { height: 180px; }
+      &:nth-child(3) { height: 240px; }
+      &:nth-child(4) { height: 200px; }
+      &:nth-child(5) { height: 320px; }
+      &:nth-child(6) { height: 180px; }
+      &:nth-child(7) { height: 260px; }
+      &:nth-child(8) { height: 210px; }
+      &:nth-child(9) { height: 170px; }
     }
   }
-  
+
+  // SP用
   &.sp-only {
     display: none;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(100px, auto);
     gap: 10px;
     width: 100%;
     margin-top: 30px;
-    
+
     @media (max-width: $bp-lg) {
       display: grid !important;
       grid-template-columns: 1fr 1fr !important;
-      grid-template-rows: 1fr 1fr !important;
-      gap: 10px !important;
+      gap: 8px !important;
       max-width: 100vw;
       margin: 24px auto 0 auto;
       z-index: 1;
       justify-items: center;
       align-items: center;
       padding: 0 10px;
-      box-sizing: border-box;
     }
-  }
-}
 
-.hero-img {
-  width: 100%;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.13);
-  pointer-events: none;
-  top: -50px;
-  
-  @media (max-width: $bp-lg) {
-    width: 100%;
-    height: auto;
-    max-width: 180px;
-    border-radius: 14px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-    animation: none !important;
-  }
-  
-  @media (max-width: 1200px) {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  @media (max-width: 600px) {
-    height: 80px;
+    .hero-img {
+      @media (max-width: $bp-md) {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+      }
+    }
   }
 }
 
@@ -391,7 +435,10 @@ $white-color: #fff;
   }
   
   .hero-img:nth-child(9) {
-    margin-top: -40px;
+    margin-top: -60px;
+  }
+  .hero-img:nth-child(5) {
+    margin-top: -20px;
   }
   
   .hero-img:nth-child(1) { height: 280px; }
@@ -406,15 +453,20 @@ $white-color: #fff;
 }
 
 // SP用の画像設定
-// SP用の画像設定
-.hero-images.sp-only .hero-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 80%;
-  height: auto;
+@media (max-width: $bp-md) {
+  .hero-images.sp-only .hero-img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+  }
+  .hero-images.sp-only {
+    margin-top: 8px;
+    gap: 8px;
+  }
 }
 
 // PC用heroセクションレイアウト（901px以上）
@@ -543,10 +595,16 @@ $white-color: #fff;
 
   .section-title {
     @include section-title;
+    @media (max-width: $bp-md) {
+      text-align: center;
+    }
   }
   
   .section-subtitle {
     @include section-subtitle;
+    @media (max-width: $bp-md) {
+      text-align: center;
+    }
   }
   
   .initiatives-container {
@@ -1081,4 +1139,28 @@ $white-color: #fff;
       display: none !important;
     }
   }
+}
+
+@media (max-width: $bp-lg) {
+  .hero-images.sp-only {
+    gap: 8px;
+  }
+  .hero-images.sp-only .hero-img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+  word-break: keep-all;
+}
+
+.highlight-red {
+  color: #D42E1E;
+  font-weight: bold;
 }
