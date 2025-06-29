@@ -832,8 +832,8 @@ $white-color: #fff;
     .image-sub {
       position: absolute;
       z-index: 3;
-      left: 30px;
-      bottom: 30px;
+      left: -15px;
+    bottom: 50px;
       width: 38%;
       min-width: 100px;
       max-width: 180px;
@@ -858,7 +858,7 @@ $white-color: #fff;
       
       .image-sub {
         left: 10px;
-        bottom: 10px;
+        bottom: -150px;
         width: 40%;
         min-width: 80px;
         max-width: 120px;
@@ -883,11 +883,12 @@ $white-color: #fff;
       
       .image-sub {
         left: 5px;
-        bottom: 5px;
+        bottom: -10px;
         width: 45%;
         min-width: 60px;
         max-width: 90px;
       }
+
     }
     
     @media (max-width: 768px) {
@@ -910,6 +911,7 @@ $white-color: #fff;
       width: 100%;
       max-width: 100%;
       padding-left: 0;
+      margin-top: 140px;
     }
     
     @media (max-width: 768px) {
