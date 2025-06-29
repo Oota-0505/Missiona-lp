@@ -927,6 +927,10 @@ $white-color: #fff;
     color: $main-color;
     font-weight: bold;
     margin-bottom: 10px;
+
+    @media (max-width: $bp-lg) {
+      text-align: center;
+    }
     
     @media (max-width: $bp-md) {
       font-size: 28px;
@@ -942,6 +946,10 @@ $white-color: #fff;
     line-height: 1.4;
     color: $text-color;
     white-space: nowrap;
+
+    @media (max-width: $bp-lg) {
+      text-align: center;
+    }
     
     @media (max-width: $bp-md) {
       font-size: 26px;

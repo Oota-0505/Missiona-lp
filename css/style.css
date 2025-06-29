@@ -879,6 +879,11 @@
   font-weight: bold;
   margin-bottom: 10px;
 }
+@media (max-width: 900px) {
+  .about-missiona .about-title {
+    text-align: center;
+  }
+}
 @media (max-width: 768px) {
   .about-missiona .about-title {
     font-size: 28px;
@@ -892,6 +897,11 @@
   line-height: 1.4;
   color: #000;
   white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .about-missiona .about-subtitle {
+    text-align: center;
+  }
 }
 @media (max-width: 768px) {
   .about-missiona .about-subtitle {
